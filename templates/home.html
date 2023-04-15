@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>بینـــگو</title>
+{% endblock %}
+
+{% block contetnt %}
+<!-- slider -->
+<section class="row">
+	<div class="col-12">
+		<div class="hero owl-carousel" id="hero">
+			<div class="hero__slide" data-bg="{{ url_for('static', filename='img/home/slide1.jpg') }}">
+				<h1 class="hero__title">حالا وقتش رسید خودتو حسابی محک بزنی</h1>
+				<p class="hero__text">اگه از قوانین و نحوه بازی اطلاع نداری، پیشنهاد می کنیم اول راهنمای بازی رو مطالعه کنی.</p>
+				<div class="hero__btns">
+					<a href="#" class="hero__btn hero__btn--red">راهنمای بازی</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- end slider -->
+
+<!-- select game -->
+
+<!-- title -->
+<section class="row">
+	<div class="col-12">
+		<div class="main__title">
+			<h2>انتخاب بازی</h2>
+		</div>
+	</div>
+</section>
+<!-- end title -->
+
+<!-- select grade -->
+<section class="row row--grid" id="choose-grade">
+	<div class="col-12" id="grades">
+		<div class="row row--grid">
+			<div class="col-12">
+				<div class="main__title">
+					<h2>اول پایه تحصیلی مدنظرت رو انتخاب کن</h2>
+				</div>
+			</div>
+
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 grade">
+				<div class="event" data-bg="{{ url_for('static', filename='img/grade/9.jpg') }}">
+					<h3 class="event__title d-none">نهم</h3>
+				</div>
+			</div>
+
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 grade">
+				<div class="event" data-bg="{{ url_for('static', filename='img/grade/8.jpg') }}">
+					<h3 class="event__title d-none">هشتم</h3>
+				</div>
+			</div>
+
+			<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 grade">
+				<div class="event" data-bg="{{ url_for('static', filename='img/grade/7.jpg') }}">
+					<h3 class="event__title d-none">هفتم</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>	
+<!-- end select grade -->
+
+<!-- select lessen & section -->
+<section dir="rtl" class="row row--grid d-none" id="choose-lesson">
+	<div class="col-12">
+		<div class="main__title main__title--page">
+			<!-- if just math, uncoment blow line -->
+			<h2>حالا فصل رو انتخاب کن</h2>
+			<!-- if for all lessons, uncoment blow line -->
+			<!-- <h2>حالا درس و فصل رو انتخاب کن</h2> -->
+		</div>
+	</div>
+	<div class="col-12 d-flex flex-wrap" id="lesson-card">
+		<!-- Lessons will be added here -->
+
+		<!-- data errors -->
+		<div class="col-12 d-none" id="no-content-err">
+			<div class="page-404">
+				<div class="page-404__wrap">
+					<div class="page-404__content">
+						<h1 class="page-404__title">متاسفیم!</h1>
+						<p class="page-404__text mt-5">برای پایه مورد نظر شما درسی تعریف نشده است!</p>
+						<a href="{{ url_for('home') }}" class="page-404__btn">اتخاب پایه دیگر</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-12 d-none" id="server-err">
+			<div class="page-404">
+				<div class="page-404__wrap">
+					<div class="page-404__content">
+						<h1 class="page-404__title">متاسفیم!</h1>
+						<p class="page-404__text mt-5">درحال حاضر سرور دچار مشکل شده است!</p>
+						<a href="{{ url_for('home') }}" class="page-404__btn">تلاش مجدد</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end error -->
+	</div>
+</section>
+<!-- end select lessen & section -->
+
+<!-- end select game -->
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/select-game.js') }}"></script>
+{% endblock %}

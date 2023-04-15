@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block contetnt %}
+<div class="row row--grid">
+	<!-- registration form -->
+	<div class="col-12">
+		<div class="sign">
+			<div class="sign__content">
+				<form method="POST" action="{{ url_for('register') }}" class="sign__form" novalidate>
+					{{ form.hidden_tag() }}
+					<a href="{{ url_for('root') }}" class="sign__logo">
+						<img src="{{ url_for('static', filename='img/logo.svg') }}" alt="">
+					</a>
+					<div class="sign__group">
+						{{ form.user_name(class="sign__input") }}
+						{% for error in form.user_name.errors %}
+						<span class="text-danger">{{ error }}</span>
+						{% endfor %}
+					</div>
+					<div class="sign__group">
+						{{ form.first_name(class="sign__input") }}
+						{% for error in form.first_name.errors %}
+						<span class="text-danger">{{ error }}</span>
+						{% endfor %}
+					</div>
+					<div class="sign__group">
+						{{ form.last_name(class="sign__input") }}
+						{% for error in form.last_name.errors %}
+						<span class="text-danger">{{ error }}</span>
+						{% endfor %}
+					</div>
+					<div class="sign__group">
+						{{ form.grade(class="sign__input") }}
+					</div>
+					<div class="sign__group">
+						{{ form.school(class="sign__input") }}
+					</div>
+					<div class="sign__group">
+						{{ form.password(class="sign__input") }}
+						{% for error in form.password.errors %}
+						<span class="text-danger">{{ error }}</span>
+						{% endfor %}
+					</div>
+					<div class="sign__group">
+						{{ form.re_password(class="sign__input") }}
+						{% for error in form.re_password.errors %}
+						<span class="text-danger">{{ error }}</span>
+						{% endfor %}
+					</div>
+					{{ form.submit(class="sign__btn") }}
+
+					<span class="sign__delimiter">یا</span>
+					<span class="sign__text">حساب دارید ؟ <a href="{{ url_for('login') }}">وارد شوید!</a></span>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- end registration form -->
+</div>
+{% endblock %}
